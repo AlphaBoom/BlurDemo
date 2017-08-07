@@ -1,55 +1,55 @@
 
-#各类模糊算法效果展示
+# 各类模糊算法效果展示
 为了测试这里用到两张图片
 ![272x272](http://upload-images.jianshu.io/upload_images/1916010-624c67fe495a5bda.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![3500x2625](http://upload-images.jianshu.io/upload_images/1916010-2d3799e0dd74ca80.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-##第一张图片(272x272)
-###Fast Blur
+## 第一张图片(272x272)
+### Fast Blur
 
 ![](http://upload-images.jianshu.io/upload_images/1916010-a20be33f651bed00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###Fast Blur(JNI实现)
+### Fast Blur(JNI实现)
 >之前用真机测试两个Fast Blur (在小图上)的时间差不多，这里可能是因为模拟器是x86的原因
 
 ![](http://upload-images.jianshu.io/upload_images/1916010-70429f00d2e3b254.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###Box Blur
+### Box Blur
 >只能设置奇数的radius
 
 ![](http://upload-images.jianshu.io/upload_images/1916010-c8ecd443e68925f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###Gaussia Fast Blur
+### Gaussia Fast Blur
 
 
 ![](http://upload-images.jianshu.io/upload_images/1916010-bfde5f7d1c93bb1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###Stack Blur
+### Stack Blur
 
 ![](http://upload-images.jianshu.io/upload_images/1916010-e6a979454e795676.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###RenderScript Blur
+### RenderScript Blur
 >主流的 目前速度也是最快的，不过radius只能设置0-25之间，时间是0-2ms浮动
 
 ![](http://upload-images.jianshu.io/upload_images/1916010-4fc8550a6d2c08ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###RenderScript Box 3x3
+### RenderScript Box 3x3
 >radius 并不是模糊半径 而是进行模糊的次数，所以会更花时间
 
 ![](http://upload-images.jianshu.io/upload_images/1916010-e9179030c529dd3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###RenderScript Box 5x5
+### RenderScript Box 5x5
 >radius 代表次数
 
 ![](http://upload-images.jianshu.io/upload_images/1916010-b656c3b09a5dd462.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###RenderScript Box Gaussia 5x5
+### RenderScript Box Gaussia 5x5
 >和上面方法一样 只是设置的具体转换数值不同
 
 ![](http://upload-images.jianshu.io/upload_images/1916010-f1c2253320784ccb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-##第二张图片(3500x2625)
+## 第二张图片(3500x2625)
 >缩放及模糊半径与上面一致
 
 |Fast Blur|Box Blur|
@@ -62,13 +62,13 @@
 |RenderScript Box 5x5|RenderScript Box Gaussia 5x5|
 |![](http://upload-images.jianshu.io/upload_images/1916010-879a08901ac518a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|![](http://upload-images.jianshu.io/upload_images/1916010-870318be03c688a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-###这里开启Bitmap Filter 再看下效果
+### 这里开启Bitmap Filter 再看下效果
 ||NO FILTER|FILTER|
 |:----:|:-------:|:-----:|
 |Fast Blur|![](http://upload-images.jianshu.io/upload_images/1916010-da33863c3722fcc7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|![](http://upload-images.jianshu.io/upload_images/1916010-fc12d3436a986cef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|
 |RenderScript Blur|![](http://upload-images.jianshu.io/upload_images/1916010-00424a2e8151e391.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)|![](http://upload-images.jianshu.io/upload_images/1916010-5a1d23127baa25a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#表格统计
+# 表格统计
 >这里第一个图(272x272)用A表示,第二个图(3500x2625)用B表示`()`表示模糊半径及缩放比例,每个测试三组测试数据已`(时间,内存)`展示,`crash`都是因为OOM了
 
 |算法|(20,0.125)|(10,0.125)|(25,0.5)|(25,1)|(50,1)|
